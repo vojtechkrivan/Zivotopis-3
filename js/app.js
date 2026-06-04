@@ -1,5 +1,5 @@
 'use strict';
-const supabase = window.supabase.createClient(
+const db = window.supabase.createClient(
   'https://rxmxvvmjdotabcrsngol.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bXh2dm1qZG90YWJjcnNuZ29sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMDQyOTMsImV4cCI6MjA5NTg4MDI5M30.vbz90i_ZFrtrI8MTRBGKuo7IPi7g9Tp7ksaLsrUNdAo'
 );
@@ -255,7 +255,7 @@ function animateCounters() {
 // ============================================================
 
 async function loadArticles() {
-  const { data, error } = await supabase
+  const { data, error } = await db
     .from('posts')
     .select('*')
     .order('created_at', { ascending: false });
@@ -402,7 +402,7 @@ async function doAddArticle() {
   if (!title || !content) { err.classList.remove('hidden'); return; }
   err.classList.add('hidden');
 
-  const { data: inserted, error: insertError } = await supabase
+  const { data: inserted, error: insertError } = await db
     .from('posts')
     .insert({ 
       title, 
