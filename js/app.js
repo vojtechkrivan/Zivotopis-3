@@ -527,7 +527,7 @@ async function doSendMessage() {
 
   const { data: inserted, error } = await db
     .from('messages')
-    .insert({ name, text, date: new Date().toISOString().split('T')[0], reply: null })
+    .insert({ name, text, date: new Date().toISOString().split('T')[0] })
     .select()
     .single();
   if (error) { console.error('Chyba při odesílání:', error); return; }
