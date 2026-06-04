@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vojtěch Křivan – Portfolio a osobní web studenta SPŠ Tábor">
+  <meta name="author" content="Vojtěch Křivan">
+  <meta name="theme-color" content="#0a0a12">
+  <title>Vojtěch Křivan | Portfolio</title>
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="#about" class="nav-logo" data-section="about" aria-label="Domů">
+      <span class="logo-initials">VK</span>
+      <span class="logo-name">Vojtěch Křivan</span>
+    </a>
+
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Otevřít menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <ul class="nav-list" id="navList" role="list">
+      <li><a class="nav-link active" data-section="about" href="#about">O mně</a></li>
+      <li><a class="nav-link" data-section="cv" href="#cv">CV</a></li>
+      <li><a class="nav-link" data-section="portfolio" href="#portfolio">Portfolio</a></li>
+      <li><a class="nav-link" data-section="blog" href="#blog">Blog</a></li>
+      <li><a class="nav-link" data-section="internship" href="#internship">Praxe</a></li>
+    </ul>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout tmavý / světlý režim">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<main class="main">
+
+  <!-- ============================================================
+       SEKCE: O mně
+       ============================================================ -->
+  <section class="section active" id="about" aria-label="O mně">
+
+    <!-- Decorative hero background blobs -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+
+      <div class="hero">
+        <div class="hero-text">
+          <p class="hero-greeting">Ahoj, jsem</p>
+          <h1 class="hero-name">Vojtěch Křivan</h1>
+          <div class="hero-role-row" aria-live="polite">
+            <span class="hero-role-prefix">Jsem&nbsp;</span>
+            <span class="hero-role" id="heroRole">Web Developer</span>
+            <span class="typing-cursor" aria-hidden="true">|</span>
+          </div>
+
+          <div class="stats-strip reveal">
+            <div class="stat-item">
+              <div class="stat-num-wrap">
+                <span class="stat-num" data-count="3">0</span><span class="stat-unit">+</span>
+              </div>
+              <p class="stat-label">Roky<br>kódování</p>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <div class="stat-num-wrap">
+                <span class="stat-num" data-count="12">0</span><span class="stat-unit">+</span>
+              </div>
+              <p class="stat-label">Projektů</p>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <div class="stat-num-wrap">
+                <span class="stat-num" data-count="10">0</span><span class="stat-unit">+</span>
+              </div>
+              <p class="stat-label">Technologií</p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-section="portfolio">Prohlédnout portfolio</button>
+            <button class="btn btn-outline" data-section="cv">Zobrazit CV</button>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <!-- PLACEHOLDER: Nahraď za <img src="img/foto.jpg" alt="Vojtěch Křivan"> -->
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-card reveal">
+          <div class="about-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h2>Kdo jsem</h2>
+          <p>
+            <!-- PLACEHOLDER: Věk, škola, obor, co tě baví. -->
+            Student Technického lycea na SPŠ Tábor. Baví mě programování, hardware a tvoření věcí, které skutečně fungují.
+          </p>
+        </article>
+
+        <article class="about-card reveal">
+          <div class="about-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h2>Moje cíle</h2>
+          <p>
+            <!-- PLACEHOLDER: Kde se vidíš za 5 let? Co bys chtěl vytvořit? -->
+            Chci se specializovat na embedded systems a IoT – projekty, kde hardware potkává software.
+          </p>
+        </article>
+
+        <article class="about-card reveal">
+          <div class="about-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+            </svg>
+          </div>
+          <h2>Proč to dělám</h2>
+          <p>
+            <!-- PLACEHOLDER: Tvoje motivace a „proč". -->
+            Fascinuje mě možnost vytvořit něco z ničeho. Programování pro mě není jen práce – je to způsob myšlení.
+          </p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEKCE: CV
+       ============================================================ -->
+  <section class="section" id="cv" aria-label="Životopis">
+    <div class="container">
+      <h1 class="section-title reveal">CV &amp; Dovednosti</h1>
+
+      <h2 class="subsection-title reveal">Technologie &amp; Dovednosti</h2>
+
+      <div class="skill-bars-grid">
+
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+            Programování
+          </h3>
+          <div class="bar-list">
+            <div class="bar-item">
+              <div class="bar-header"><span>Python</span><span class="bar-pct">85%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="85"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>C / C++</span><span class="bar-pct">80%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="80"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>JavaScript</span><span class="bar-pct">65%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="65"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>Java</span><span class="bar-pct">35%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="35"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            Webový vývoj
+          </h3>
+          <div class="bar-list">
+            <div class="bar-item">
+              <div class="bar-header"><span>HTML5</span><span class="bar-pct">90%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="90"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>CSS3</span><span class="bar-pct">85%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="85"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>Vanilla JS</span><span class="bar-pct">65%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="65"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>React</span><span class="bar-pct">25%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="25"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="9" y="9" width="6" height="6"/>
+              <path d="M15 2H9v3M15 19H9v3M2 9v6h3M19 9v6h3"/>
+            </svg>
+            Hardware &amp; Embedded
+          </h3>
+          <div class="bar-list">
+            <div class="bar-item">
+              <div class="bar-header"><span>Arduino</span><span class="bar-pct">85%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="85"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>ESP32 / ESP8266</span><span class="bar-pct">80%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="80"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>Raspberry Pi</span><span class="bar-pct">60%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="60"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>Elektronika / pájení</span><span class="bar-pct">55%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="55"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            Nástroje &amp; Ostatní
+          </h3>
+          <div class="bar-list">
+            <div class="bar-item">
+              <div class="bar-header"><span>Git &amp; GitHub</span><span class="bar-pct">80%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="80"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>VS Code</span><span class="bar-pct">90%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="90"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>Linux (CLI)</span><span class="bar-pct">60%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="60"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span>Docker</span><span class="bar-pct">30%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-pct="30"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="subsection-title reveal" style="margin-top:2.75rem">Vzdělání &amp; Zkušenosti</h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>SPŠ Tábor – Technické lyceum</h3>
+              <span class="timeline-badge">2022 – dosud</span>
+            </div>
+            <p>Obor Technické lyceum se zaměřením na programování.
+              <!-- PLACEHOLDER: Doplň konkrétní předměty, projekty nebo úspěchy. --></p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Školní odborná praxe</h3>
+              <span class="timeline-badge"><!-- PLACEHOLDER: Rok --></span>
+            </div>
+            <p><!-- PLACEHOLDER: Název firmy, role, co jsi dělal. Detailní popis v sekci „Praxe". --></p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Samostudium</h3>
+              <span class="timeline-badge">2020 – dosud</span>
+            </div>
+            <p><!-- PLACEHOLDER: Online kurzy, YouTube, knihy, vlastní projekty. --></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEKCE: Portfolio
+       ============================================================ -->
+  <section class="section" id="portfolio" aria-label="Portfolio">
+    <div class="container">
+      <h1 class="section-title reveal">Portfolio</h1>
+      <p class="section-subtitle reveal">Projekty, na kterých jsem pracoval</p>
+
+      <div class="portfolio-grid">
+
+        <article class="project-card reveal">
+          <div class="project-thumb thumb-purple">
+            <div class="thumb-pattern" aria-hidden="true"></div>
+            <span class="project-badge">v3</span>
+            <div class="thumb-label" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Osobní web &amp; Portfolio</h3>
+            <p class="project-desc">
+              Portfolio prošlo třemi vývojovými fázemi – od statického HTML/CSS (v1) po tuto SPA verzi s blog systémem a dark mode (v3).
+            </p>
+            <div class="version-list">
+              <span class="version-tag">v1: HTML/CSS</span>
+              <span class="version-tag">v2: šablona</span>
+              <span class="version-tag version-active">v3: SPA + blog</span>
+            </div>
+            <div class="tag-list">
+              <span class="tag">HTML5</span><span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span><span class="tag">Vanilla JS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/[USERNAME]/portfolio" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub repozitář">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+              <a href="#" class="project-link" aria-label="Live demo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Live demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PLACEHOLDER: Zkopíruj pro další projekt -->
+        <article class="project-card project-placeholder reveal">
+          <div class="project-thumb thumb-placeholder">
+            <div class="thumb-label" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Další projekt brzy…</h3>
+            <p class="project-desc">
+              <!-- PLACEHOLDER: Popis projektu, cíl, co ses naučil. -->
+            </p>
+            <div class="tag-list">
+              <span class="tag tag-dashed">Technologie</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEKCE: Blog
+       ============================================================ -->
+  <section class="section" id="blog" aria-label="Blog">
+    <div class="container">
+      <div class="blog-top">
+        <div>
+          <h1 class="section-title">Blog</h1>
+          <p class="section-subtitle">Poznámky, postřehy a experimenty z IT světa</p>
+        </div>
+        <button class="btn btn-outline btn-sm" id="adminToggleBtn" aria-label="Přihlásit se jako admin blogu">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          Admin
+        </button>
+      </div>
+
+      <div class="blog-list" id="blogList"></div>
+
+      <div class="blog-empty hidden" id="blogEmpty" aria-live="polite">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+        <p>Zatím žádné články. Brzy přibydou!</p>
+      </div>
+
+      <div class="article-detail hidden" id="articleDetail">
+        <button class="btn btn-outline btn-sm" id="backToBlog">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Zpět na blog
+        </button>
+        <article id="articleContent" class="article-body-wrap"></article>
+      </div>
+
+      <div class="messages-section" id="messagesSection">
+        <h2 class="subsection-title">Zprávy &amp; Otázky</h2>
+        <div class="message-form-wrap">
+          <div class="form-group">
+            <label for="msgName" class="form-label">Jméno <span class="required" aria-hidden="true">*</span></label>
+            <input type="text" id="msgName" class="form-input" placeholder="Tvoje jméno…" maxlength="80" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="msgText" class="form-label">Zpráva nebo otázka <span class="required" aria-hidden="true">*</span></label>
+            <textarea id="msgText" class="form-textarea" rows="4" placeholder="Napiš zprávu nebo otázku… (Ctrl+Enter pro odeslání)" maxlength="2000"></textarea>
+          </div>
+          <p class="form-error hidden" id="msgError" role="alert">Vyplň jméno a zprávu.</p>
+          <button class="btn btn-primary" id="sendMsgBtn">Odeslat zprávu</button>
+        </div>
+        <div class="messages-list" id="messagesList"></div>
+        <p class="messages-empty hidden" id="messagesEmpty">Zatím žádné zprávy. Buď první!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEKCE: Praxe
+       ============================================================ -->
+  <section class="section" id="internship" aria-label="Školní praxe">
+    <div class="container">
+      <h1 class="section-title reveal">Výstup z praxe</h1>
+      <p class="section-subtitle reveal">Dokumentace průběhu školní odborné praxe</p>
+
+      <div class="internship-grid">
+
+        <div class="int-card reveal">
+          <h2>Kde jsem praxi absolvoval</h2>
+          <p><!-- PLACEHOLDER: Název firmy, adresa, kontaktní osoba. -->
+             [PLACEHOLDER] Napiš název firmy a místo praxe.</p>
+        </div>
+
+        <div class="int-card reveal">
+          <h2>Moje úkoly a role</h2>
+          <p><!-- PLACEHOLDER: Role, konkrétní úkoly. -->
+             [PLACEHOLDER] Popiš svoji roli a konkrétní úkoly.</p>
+        </div>
+
+        <div class="int-card reveal">
+          <h2>Technologie a nástroje</h2>
+          <div class="tag-list">
+            <span class="tag">[PLACEHOLDER]</span>
+            <span class="tag">Git</span>
+            <span class="tag">Přidej další…</span>
+          </div>
+        </div>
+
+        <div class="int-card reveal">
+          <h2>Co jsem se naučil</h2>
+          <ul class="int-list">
+            <li>[PLACEHOLDER] První dovednost nebo poznatek</li>
+            <li>[PLACEHOLDER] Druhá věc</li>
+            <li>[PLACEHOLDER] Třetí věc</li>
+          </ul>
+        </div>
+
+        <div class="int-card reveal">
+          <h2>Co jsem vytvořil</h2>
+          <p><!-- PLACEHOLDER: Konkrétní výstup praxe. -->
+             [PLACEHOLDER] Popiš konkrétní výstupy praxe.</p>
+        </div>
+
+        <div class="int-card reveal">
+          <h2>Celkové zhodnocení</h2>
+          <p><!-- PLACEHOLDER: Co bylo nejpřínosnější? -->
+             [PLACEHOLDER] Napiš celkové zhodnocení průběhu a přínosu praxe.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-info">
+        <strong>Vojtěch Křivan</strong>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <!-- PLACEHOLDER: Doplň email -->
+        <a href="mailto:[email]@[domena].cz">[email]@[domena].cz</a>
+      </div>
+      <div class="footer-links">
+        <!-- PLACEHOLDER: Nahraď [USERNAME] -->
+        <a href="https://github.com/[USERNAME]" target="_blank" rel="noopener noreferrer" aria-label="GitHub profil">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer-credit">Postaveno s čistým HTML, CSS &amp; JS – bez závislostí</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MODÁL: Blog Admin
+     ============================================================ -->
+<div class="modal-overlay hidden" id="adminOverlay" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div class="modal" role="document">
+    <div class="modal-header">
+      <h2 id="adminTitle">Blog Admin</h2>
+      <button class="modal-close" id="adminClose" aria-label="Zavřít admin panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="adminAuthPanel">
+      <div class="form-group">
+        <label for="adminPassword" class="form-label">Heslo</label>
+        <input type="password" id="adminPassword" class="form-input" placeholder="Zadej heslo…" autocomplete="current-password">
+      </div>
+      <p class="form-error hidden" id="adminAuthError" role="alert">Špatné heslo.</p>
+      <button class="btn btn-primary" id="adminLoginBtn">Přihlásit se</button>
+    </div>
+
+    <div id="adminPanel" class="hidden">
+      <h3>Nový článek</h3>
+      <div class="form-group">
+        <label for="articleTitle" class="form-label">Nadpis <span class="required" aria-hidden="true">*</span></label>
+        <input type="text" id="articleTitle" class="form-input" placeholder="Nadpis článku">
+      </div>
+      <div class="form-group">
+        <label for="articleTags" class="form-label">Tagy (oddělené čárkou)</label>
+        <input type="text" id="articleTags" class="form-input" placeholder="JavaScript, Arduino, Tip">
+      </div>
+      <div class="form-group">
+        <label for="articleBody" class="form-label">Obsah <span class="required" aria-hidden="true">*</span></label>
+        <textarea id="articleBody" class="form-textarea" rows="8"
+          placeholder="Text článku…&#10;&#10;Základní Markdown: **tučně**, *kurzíva*, # Nadpis, `kód`, --- (oddělovač)"></textarea>
+        <p class="form-hint">Podporuje základní Markdown.</p>
+      </div>
+      <p class="form-error hidden" id="adminArticleError" role="alert">Vyplň nadpis a obsah.</p>
+      <div class="admin-actions">
+        <button class="btn btn-primary" id="addArticleBtn">Publikovat článek</button>
+        <button class="btn btn-outline" id="exportJsonBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Exportovat JSON
+        </button>
+      </div>
+      <p class="form-hint">
+        Export zkopíruje všechny články do schránky. Vlož je jako pole <code>ARTICLES_STATIC</code>
+        v souboru <code>js/app.js</code> pro trvalé uložení.
+      </p>
+
+      <hr class="divider">
+      <h3>Správa článků</h3>
+      <div id="adminArticleList"></div>
+
+      <hr class="divider">
+      <h3>Zprávy &amp; Otázky (<span id="adminMsgCount">0</span>)</h3>
+      <div id="adminMessageList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Back to top button -->
+<button class="back-top hidden" id="backTop" aria-label="Zpět nahoru">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+    <line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>
+  </svg>
+</button>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
