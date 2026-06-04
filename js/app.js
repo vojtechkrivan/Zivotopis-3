@@ -465,12 +465,12 @@ function renderAdminList() {
   `).join('');
 
   cont.querySelectorAll('[data-del]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id  = Number(btn.dataset.del);
-      const art = articles.find(a => a.id === id);
+    btn.addEventListener('click', async () => {
+      const art = articles.find(a => a.id === btn.dataset.del);
       if (!art || !confirm(`Smazat článek „${art.title}"?`)) return;
-      articles = articles.filter(a => a.id !== id);
-      saveLocalArticles();
+      const { error } = await db.from('posts').delete().eq('id', btn.dataset.del);
+      if (error) { console.error('Chyba při mazání:', error); return; }
+      articles = articles.filter(a => a.id !== btn.dataset.del);
       renderBlog();
       renderAdminList();
     });
