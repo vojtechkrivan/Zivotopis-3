@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTyping();
   await loadArticles();
   initBlogAdmin();
-  initMessages();
+  await initMessages();
   handleHash();
 });
 
@@ -265,14 +265,6 @@ async function loadArticles() {
 }
 
 
-async function saveLocalArticles() {
-  const staticIds = new Set(ARTICLES_STATIC.map(a => a.id));
-  const toSave = articles.filter(a => !staticIds.has(a.id));
-  console.log('Ukládám do Supabase:', toSave);
-  const { data, error } = await supabase.from('posts').upsert(toSave);
-  console.log('Výsledek:', data, error);
-}
-
 
 // ============================================================
 // BLOG — rendering
@@ -389,7 +381,6 @@ function doLogin() {
 }
 
 async function doAddArticle() {
-  console.log('doAddArticle se spustil');
   const titleEl   = document.getElementById('articleTitle');
   const tagsEl    = document.getElementById('articleTags');
   const contentEl = document.getElementById('articleBody');
@@ -414,8 +405,6 @@ async function doAddArticle() {
     })
     .select()
     .single();
-
-  console.log('Výsledek:', inserted, insertError);
 
   if (insertError) { console.error('Chyba:', insertError); return; }
   articles.unshift(inserted);
@@ -481,15 +470,21 @@ function renderAdminList() {
 // MESSAGES — data
 // ============================================================
 
-function loadMessages()  { messages = JSON.parse(localStorage.getItem('blog_messages') || '[]'); }
-function saveMessages()  { localStorage.setItem('blog_messages', JSON.stringify(messages)); }
+async function loadMessages() {
+  const { data, error } = await db
+    .from('messages')
+    .select('*')
+    .order('id', { ascending: false });
+  if (error) { console.error('Chyba při načítání zpráv:', error); messages = []; return; }
+  messages = data || [];
+}
 
 // ============================================================
 // MESSAGES — public
 // ============================================================
 
-function initMessages() {
-  loadMessages();
+async function initMessages() {
+  await loadMessages();
   renderMessages();
   document.getElementById('sendMsgBtn').addEventListener('click', doSendMessage);
   document.getElementById('msgText').addEventListener('keydown', e => {
@@ -520,7 +515,7 @@ function renderMessages() {
   `).join('');
 }
 
-function doSendMessage() {
+async function doSendMessage() {
   const nameEl = document.getElementById('msgName');
   const textEl = document.getElementById('msgText');
   const err    = document.getElementById('msgError');
@@ -530,8 +525,13 @@ function doSendMessage() {
   if (!name || !text) { err.classList.remove('hidden'); return; }
   err.classList.add('hidden');
 
-  messages.unshift({ id: Date.now(), name, text, date: new Date().toISOString().split('T')[0], reply: null });
-  saveMessages();
+  const { data: inserted, error } = await db
+    .from('messages')
+    .insert({ name, text, date: new Date().toISOString().split('T')[0], reply: null })
+    .select()
+    .single();
+  if (error) { console.error('Chyba při odesílání:', error); return; }
+  messages.unshift(inserted);
   nameEl.value = textEl.value = '';
   renderMessages();
   if (adminAuthed) renderAdminMessages();
@@ -575,35 +575,41 @@ function renderAdminMessages() {
   `).join('');
 
   cont.querySelectorAll('[data-del-msg]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const id  = Number(btn.dataset.delMsg);
       const msg = messages.find(m => m.id === id);
       if (!msg || !confirm(`Smazat zprávu od „${msg.name}"?`)) return;
+      const { error } = await db.from('messages').delete().eq('id', id);
+      if (error) { console.error('Chyba při mazání:', error); return; }
       messages = messages.filter(m => m.id !== id);
-      saveMessages(); renderMessages(); renderAdminMessages();
+      renderMessages(); renderAdminMessages();
     });
   });
 
   cont.querySelectorAll('[data-reply-btn]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const id    = Number(btn.dataset.replyBtn);
       const input = cont.querySelector(`[data-reply-input="${id}"]`);
       const text  = input?.value.trim();
       if (!text) return;
       const msg = messages.find(m => m.id === id);
       if (!msg) return;
+      const { error } = await db.from('messages').update({ reply: text }).eq('id', id);
+      if (error) { console.error('Chyba při odpovídání:', error); return; }
       msg.reply = text;
-      saveMessages(); renderMessages(); renderAdminMessages();
+      renderMessages(); renderAdminMessages();
     });
   });
 
   cont.querySelectorAll('[data-clear-reply]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const id  = Number(btn.dataset.clearReply);
       const msg = messages.find(m => m.id === id);
       if (!msg) return;
+      const { error } = await db.from('messages').update({ reply: null }).eq('id', id);
+      if (error) { console.error('Chyba při mazání odpovědi:', error); return; }
       msg.reply = null;
-      saveMessages(); renderMessages(); renderAdminMessages();
+      renderMessages(); renderAdminMessages();
     });
   });
 }
